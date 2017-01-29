@@ -1,0 +1,39 @@
+name: carto
+root: ~/Development/carto
+attach: false
+post: tmux -CC attach
+windows:
+  - databases:
+      layout: main-vertical
+      panes:
+        - pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+        - redis-server
+  - ui:
+    - sleep 2 && cd cartodb && bundle exec rails s -p 3000
+  - resque:
+    - sleep 2 && cd cartodb && bundle exec ./script/resque
+  - apis:
+      layout: main-horizontal
+      panes:
+        - tiler: sleep 3 && cd Windshaft-cartodb && node app.js development
+        - sql-api: sleep 3 && cd CartoDB-SQL-API && node app.js development
+  - bash:
+    - cd cartodb
+
+# unset RAILS_LOG_BASE_PATH && unset RAILS_CONFIG_BASE_PATH && unset RAILS_PUBLIC_UPLOADS_PATH
+#  - ui: export RAILS_LOG_BASE_PATH=/tmp/carto && export RAILS_CONFIG_BASE_PATH=/etc/carto && export RAILS_PUBLIC_UPLOADS_PATH=/var/carto/assets && bundle exec rails s -p 3000
+#  - ui: export RAILS_LOG_BASE_PATH=/tmp/carto && export RAILS_CONFIG_BASE_PATH=/etc/carto && export RAILS_PUBLIC_UPLOADS_PATH=/var/carto/assets && bundle exec thin start --threaded -p 3000 --threadpool-size 5
+#  - ui: bundle exec rails s -p 3000
+#  - resque: export RAILS_LOG_BASE_PATH='/tmp/carto' && export RAILS_CONFIG_BASE_PATH='/etc/carto' && export RAILS_PUBLIC_UPLOADS_PATH=/var/carto/assets && bundle exec ./script/resque
+#  - resque: bundle exec ./script/resque
+#  - central: cd /home/ubuntu/www/central/current && bundle exec rails s -p 4000
+#  - central-resque: cd /home/ubuntu/www/central/current && bundle exec ./script/resque
+#  - psql: psql -U postgres -d carto_db_development
+#  - tiler: cd /home/ubuntu/www/node-windshaft/current && node app.js development
+#  - sql-api: cd /home/ubuntu/www/node-sql-api/current && node app.js development
+#  - logs:
+#      layout: main-horizontal
+#      panes:
+#        - cd /home/ubuntu/www/node-windshaft/current && tail -f logs/*log
+#        - cd /home/ubuntu/www/node-sql-api/current && tail -f logs/*log
+#  - bash: cd ~/www/production.cartodb.com/current
