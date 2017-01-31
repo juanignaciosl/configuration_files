@@ -12,11 +12,15 @@ windows:
     - sleep 2 && cd cartodb && bundle exec rails s -p 3000
   - resque:
     - sleep 2 && cd cartodb && bundle exec ./script/resque
+  - central-ui:
+    - sleep 4 && cd cartodb-central && bundle exec rails s -p 4000
+  - central-resque:
+    - sleep 4 && cd cartodb-central && bundle exec ./script/resque
   - apis:
       layout: main-horizontal
       panes:
-        - tiler: sleep 3 && cd Windshaft-cartodb && node app.js development
-        - sql-api: sleep 3 && cd CartoDB-SQL-API && node app.js development
+        - tiler: sleep 3 && cd Windshaft-cartodb && nvm use global v0.10.26 && node app.js development
+        - sql-api: sleep 3 && cd CartoDB-SQL-API && nvm use global v0.10.26 && node app.js development
   - bash:
     - cd cartodb
 
