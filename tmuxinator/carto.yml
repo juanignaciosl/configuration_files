@@ -6,7 +6,7 @@ windows:
   - databases:
       layout: main-vertical
       panes:
-        - pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start && psql -U postgres -d carto_db_development
+        - pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start && sleep 2 && psql -U postgres -d carto_db_development
         - redis-server
   - ui:
     - sleep 2 && cd cartodb && bundle exec rails s -p 3000
