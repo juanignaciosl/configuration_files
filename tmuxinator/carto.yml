@@ -6,16 +6,16 @@ windows:
   - databases:
       layout: main-vertical
       panes:
-        - pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start && sleep 2 && psql -U postgres -d carto_db_development
+        - pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start && sleep 4 && psql -U postgres -d carto_db_development
         - redis-server
   - ui:
-    - sleep 2 && cd cartodb && rails s -p 3000
+    - sleep 2 && cd cartodb && rvm --default use 2.2.3 && rails s -p 3000
   - resque:
-    - sleep 2 && cd cartodb && bundle exec ./script/resque
+    - sleep 2 && cd cartodb && rvm --default use 2.2.3 && bundle exec ./script/resque
   - central-ui:
-    - sleep 4 && cd cartodb-central && rails s -p 4000
+    - sleep 4 && cd cartodb-central && rvm --default use 2.2.3 && rails s -p 4000
   - central-resque:
-    - sleep 4 && cd cartodb-central && bundle exec ./script/resque
+    - sleep 4 && cd cartodb-central && rvm --default use 2.2.3 && bundle exec ./script/resque
   - apis:
       layout: main-horizontal
       panes:
