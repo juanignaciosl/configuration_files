@@ -1,0 +1,17 @@
+name: v+do
+root: ~/Development/carto
+attach: false
+post: tmux -CC attach
+windows:
+  - do:
+      layout: fb42,272x69,0,0{136x69,0,0,0,135x69,137,0[135x34,137,0,7,135x34,137,35,8]}
+      panes:
+        - do-psql: cd bigmetadata && docker-compose up -d && echo "Connecting psql in 10s" && sleep 10 && make psql
+        - cartoframes: cd cartoframes && jupyter notebook --port=8889
+        - cdb-manager: cd cdb-manager && python httpserv.py
+  - v:
+    - cd developer-tools/vagrant/carto-dev && vagrant up && vagrant ssh -c "tmuxinator cartodb"
+  - v-ssh:
+    - cd developer-tools/vagrant/carto-dev && echo "When ready, run ssh ubuntu@127.0.0.1 -p 2222 -t 'tmux -CC attach'"
+  - bash:
+    - cd ~
