@@ -16,6 +16,6 @@ windows:
       panes:
         - do-psql: cd ~/Development/carto/bigmetadata && docker-compose up -d && echo "Connecting psql in 40s..." && sleep 40 && make psql
         - cartoframes: cd ~/Development/carto/cartoframes && source venv/bin/activate && jupyter notebook --port=8889
-        - cdb-manager: cd ~/Development/carto/cdb-manager && python httpserv.py
+        - cdb-manager: cd ~/Development/carto/cdb-manager && python2 httpserv.py
   - v:
     - cd ~/Development/carto/developer-tools/vagrant/carto-dev && vagrant up && vagrant ssh -c "tmuxinator cartodb"
