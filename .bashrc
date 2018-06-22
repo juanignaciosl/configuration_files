@@ -127,7 +127,8 @@ RED="\[\033[0;31m\]"
 VIOLET='\[\033[01;35m\]'
 
 function color_my_prompt {
-  local __user_and_host="$GREEN\u@\h"
+  # local __user_and_host="$GREEN\u@\h"
+  # local __user="$GREEN\u"
   local __cur_location="$BLUE\W"           # capital 'W': current directory, small 'w': full file path
   local __git_branch_color="$GREEN"
   local __prompt_tail="$VIOLET$"
@@ -146,7 +147,7 @@ function color_my_prompt {
   fi
 
   # Build the PS1 (Prompt String)
-  PS1="$__user_and_host $__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
+  PS1="$__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
 }
 
 # configure PROMPT_COMMAND which is executed each time before PS1
