@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\[\033[00m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}'
 fi
 unset color_prompt force_color_prompt
 
@@ -116,6 +116,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Custom virtualenv prompt, taken from https://stackoverflow.com/a/20026992/351721
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "($venv) "
+}
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+VENV="\$(virtualenv_info)";
+
 # store colors
 MAGENTA="\[\033[0;35m\]"
 YELLOW="\[\033[01;32m\]"
@@ -147,7 +165,7 @@ function color_my_prompt {
   fi
 
   # Build the PS1 (Prompt String)
-  PS1="$__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
+  PS1="$VENV$__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
 }
 
 # configure PROMPT_COMMAND which is executed each time before PS1
