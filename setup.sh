@@ -1,8 +1,14 @@
 CONFIGURATION_FILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-HomeDotfiles=('.bashrc' 'CARTO/.carto-dev-cfg.yml' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.vimrc' '.zshrc')
+HomeDotfiles=('.bashrc' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.leptonrc' '.vimrc' '.zshrc')
 
 for homeDotFile in "${HomeDotfiles[@]}"; do
+  HOME_FILE_PATH=$HOME/$homeDotFile
+  if [ -f $HOME_FILE_PATH ] && [ ! -h $HOME_FILE_PATH ]; then
+    echo "$HOME_FILE_PATH exists and it's not a symbolic link"
+    exit 1
+  fi
+
   DOT_FILE_PATH=$CONFIGURATION_FILES_DIR/$homeDotFile
-  ln -s $DOT_FILE_PATH ~/
+  ln -sf $DOT_FILE_PATH $HOME_FILE_PATH
 done
