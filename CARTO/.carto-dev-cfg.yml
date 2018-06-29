@@ -1,0 +1,64 @@
+## CARTO Vagrant Developement VM Config ##
+
+## Vagrant VM resources
+vm:
+  cores: 2
+  memory: 3072
+  # This setting will mount the directory where the Vagrantfile
+  # is as /vagrant using nfs.
+  # This option may not work propperly with some types of home
+  # encryption on Linux.
+  # Administrator privileges will be requested.
+  mount_local_nfs: false
+  # This setting will mount the repos.local_path directory as
+  # /repos using nfs.
+  # This option may not work propperly with some types of home
+  # encryption on Linux.
+  # Administrator privileges will be requested.
+  mount_repos_nfs: false
+  lxc_version: 3
+
+## GIT repositories location
+# All repos are supposed to be under local_path
+repos:
+  local_path: "/home/juanignaciosl/Development/CARTO/"
+  # https://github.com/CartoDB/cartodb-platform
+  cartodb_platform: "cartodb-platform"
+  # https://github.com/CartoDB/cartodb
+  builder: "cartodb"
+  # https://github.com/CartoDB/CartoDB-SQL-API
+  sql_api: "CartoDB-SQL-API"
+  # https://github.com/CartoDB/Windshaft-cartodb
+  maps_api: "Windshaft-cartodb"
+  # https://github.com/CartoDB/node-cartodb-invalidation-service
+  tis: "node-cartodb-invalidation-service"
+  # https://github.com/CartoDB/data-services
+  dataservices: "data-services"
+  # https://github.com/CartoDB/dataservices-api
+  dataservices_api: "dataservices-api"
+
+extra_paths:
+  "/home/ubuntu/www/camshaft/current": "camshaft"
+  "/home/ubuntu/Development/configuration_files": "/home/juanignaciosl/Development/configuration_files"
+  "/mnt/pg_data": "/home/juanignaciosl/Development/CARTO/developer-tools/vagrant/carto-dev/pg_data"
+
+## Vagrant listen ports
+# Note that changing any of these may require change attributes in
+# services config (app_config.yml, development.js, ...).
+ports:
+  nginx: 8888
+  nginx_ssl: 8443
+  builder: 3000
+  sql_api: 8080
+  maps_api: 8181
+  postgresql: 9432
+
+## Stack configuration
+config:
+  builder_precompile_assets: false
+  builder_assets_npm_install: false
+  builder_migrate_db: true
+  dataservices_dbname: "dataservices_db"
+  # Changing postgresql_version may require to destroy the instance
+  # and create it again.
+  postgresql_version: "10"
