@@ -152,9 +152,12 @@ function color_my_prompt {
   local __prompt_tail="$VIOLET$"
   local __user_input_color="$GREEN"
   local __git_branch='$(__git_ps1)';
+  local __wip_warn=""
 
+  if [[ `git log -n 1 --pretty=oneline --abbrev-commit` =~ "WIP" ]]; then # if last commit is a WIP
+      __wip_warn="${RED}WIP!!!"
   # colour branch name depending on state
-  if [[ "$(__git_ps1)" =~ "*" ]]; then     # if repository is dirty
+  elif [[ "$(__git_ps1)" =~ "*" ]]; then     # if repository is dirty
       __git_branch_color="$RED"
   elif [[ "$(__git_ps1)" =~ "$" ]]; then   # if there is something stashed
       __git_branch_color="$YELLOW"
@@ -165,7 +168,7 @@ function color_my_prompt {
   fi
 
   # Build the PS1 (Prompt String)
-  PS1="$VENV$__cur_location$__git_branch_color$__git_branch $__prompt_tail$__user_input_color "
+  PS1="$VENV$__cur_location$__git_branch_color$__git_branch $__wip_warn $__prompt_tail$__user_input_color "
 }
 
 # configure PROMPT_COMMAND which is executed each time before PS1
