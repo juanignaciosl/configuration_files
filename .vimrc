@@ -13,3 +13,5 @@ set path+=**
 set wildmenu
 " Don't add line breaks
 set textwidth=0 wrapmargin=0
+
+au Filetype markdown source ~/.vim/scripts/markdown.vim
