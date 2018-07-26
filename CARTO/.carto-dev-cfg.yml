@@ -26,6 +26,8 @@ repos:
   cartodb_platform: "cartodb-platform"
   # https://github.com/CartoDB/cartodb
   builder: "cartodb"
+  # https://github.com/CartoDB/cartodb-central
+  cartodb_central: "cartodb-central"
   # https://github.com/CartoDB/CartoDB-SQL-API
   sql_api: "CartoDB-SQL-API"
   # https://github.com/CartoDB/Windshaft-cartodb
@@ -49,6 +51,7 @@ ports:
   nginx: 8888
   nginx_ssl: 8443
   builder: 3000
+  central: 4000
   sql_api: 8080
   maps_api: 8181
   postgresql: 9432
