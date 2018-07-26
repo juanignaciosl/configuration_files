@@ -4,7 +4,8 @@
 project_name: cartodb
 project_root: /home/ubuntu/www/production.cartodb.com/current
 tabs:
-  - ui: bundle exec rails s
+  # - ui: bundle exec rails s
+  - ui: bundle exec rails s -b 0.0.0.0
   - consoles:
       layout: main-vertical
       panes:
