@@ -5,13 +5,21 @@ project_name: cartodb
 project_root: /home/ubuntu/www/production.cartodb.com/current
 tabs:
   # - ui: bundle exec rails s
-  - ui: bundle exec rails s -b 0.0.0.0
   - consoles:
       layout: main-vertical
       panes:
         - bundle exec rails c
         - psql -U postgres -d carto_db_development
-  - resque: bundle exec ./script/resque
+  - cartodb:
+      layout: main-vertical
+      panes:
+        - bundle exec rails s -b 0.0.0.0
+        - bundle exec ./script/resque
+  - cartodb-central:
+      layout: main-vertical
+      panes:
+        - cd /home/ubuntu/www/central/current && bundle exec rails s -p 4000
+        - cd /home/ubuntu/www/central/current && bundle exec ./script/resque
   - tiler: cd /home/ubuntu/www/node-windshaft/current && node app.js development
   - sql-api: cd /home/ubuntu/www/node-sql-api/current && node app.js development
   - tis: cd /home/ubuntu/www/tis/current && node app.js development
