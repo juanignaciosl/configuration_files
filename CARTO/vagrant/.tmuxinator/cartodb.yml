@@ -10,6 +10,7 @@ tabs:
       panes:
         - bundle exec rails c
         - psql -U postgres -d carto_db_development
+        - cd /home/ubuntu/www/central/current && bundle exec rails c
   - cartodb:
       layout: main-vertical
       panes:
