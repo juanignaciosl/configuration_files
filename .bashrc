@@ -170,7 +170,7 @@ function prompt_command {
   fi
 
   # Build the PS1 (Prompt String)
-  PS1="$VENV$__cur_location$__git_branch_color$__git_branch $__wip_warn $__prompt_tail$__user_input_color "
+  PS1="$VENV$__cur_location$__git_branch_color$__git_branch $__wip_warn$__prompt_tail$__user_input_color "
 }
 
 # configure PROMPT_COMMAND which is executed each time before PS1
