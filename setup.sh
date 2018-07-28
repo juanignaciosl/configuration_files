@@ -10,5 +10,5 @@ for homeDotFile in "${HomeDotfiles[@]}"; do
   fi
 
   DOT_FILE_PATH=$CONFIGURATION_FILES_DIR/$homeDotFile
-  ln -sf $DOT_FILE_PATH $HOME_FILE_PATH
+  ln -sfT $DOT_FILE_PATH $HOME_FILE_PATH
 done
