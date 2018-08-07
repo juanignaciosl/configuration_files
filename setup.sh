@@ -1,6 +1,6 @@
 CONFIGURATION_FILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-HomeDotfiles=('.bashrc' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.leptonrc' '.vim' '.vimrc' '.zshrc')
+HomeDotfiles=('.bashrc' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.leptonrc' '.ssh/config' '.vim' '.vimrc' '.zshrc')
 
 for homeDotFile in "${HomeDotfiles[@]}"; do
   HOME_FILE_PATH=$HOME/$homeDotFile
@@ -10,5 +10,5 @@ for homeDotFile in "${HomeDotfiles[@]}"; do
   fi
 
   DOT_FILE_PATH=$CONFIGURATION_FILES_DIR/$homeDotFile
-  ln -sf $DOT_FILE_PATH $HOME_FILE_PATH
+  ln -sfT $DOT_FILE_PATH $HOME_FILE_PATH
 done
