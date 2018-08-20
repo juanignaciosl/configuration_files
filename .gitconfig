@@ -3,4 +3,4 @@
 	name = Juan Ignacio Sánchez Lara
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignore
+	excludesfile = ~/.gitignore
