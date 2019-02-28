@@ -196,3 +196,11 @@ if [ -f '/home/juanignaciosl/bin/google-cloud-sdk/path.bash.inc' ]; then source 
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/juanignaciosl/bin/google-cloud-sdk/completion.bash.inc' ]; then source '/home/juanignaciosl/bin/google-cloud-sdk/completion.bash.inc'; fi
+
+PATH=/home/juanignaciosl/Downloads/kafka_2.11-2.0.0/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias restart-broken-audio='pulseaudio -k'
