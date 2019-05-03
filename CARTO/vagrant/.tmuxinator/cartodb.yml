@@ -19,7 +19,7 @@ tabs:
   - cartodb-central:
       layout: even-horizontal
       panes:
-        - cd /home/ubuntu/www/central/current && bundle exec rails s -p 4000
+        - cd /home/ubuntu/www/central/current && bundle exec rails s -p 4000 -b 0.0.0.0
         - cd /home/ubuntu/www/central/current && bundle exec ./script/resque
   - engine:
       layout: even-vertical
