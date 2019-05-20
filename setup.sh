@@ -25,4 +25,7 @@ for homeDotFile in "${HomeDotfiles[@]}"; do
   ln -sfT $DOT_FILE_PATH $HOME_FILE_PATH
 done
 
+# .ssh files require 700 permissions
+chmod 700 /home/juanignaciosl/.ssh/config
+
 sudo apt install -y exfat-fuse exfat-utils vim git libcanberra-gtk-module gnome-tweak-tool clamav lxc lxc-templates cgroup-lite redir bridge-utils npm ngrep terminator virtualenv htop telegram-desktop gparted docker docker-compose postgresql-client powertop darktable python-dev flameshot xclip
