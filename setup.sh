@@ -1,6 +1,18 @@
 CONFIGURATION_FILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-HomeDotfiles=('.bash_aliases' '.bashrc' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.leptonrc' '.ssh/config' '.vim' '.vimrc' '.zshrc')
+HomeDirectories=('.config/fusuma')
+
+HomeDotfiles=('.bash_aliases' '.bashrc' '.config/fusuma/config.yml' '.gitconfig' '.gitignore' '.git-prompt.sh' '.inputrc' '.leptonrc' '.ssh/config' '.vim' '.vimrc' '.zshrc')
+
+for homeDirectory in "${HomeDirectories[@]}"; do
+  HOME_DIR_PATH=$HOME/$homeDirectory
+  if [ -f $HOME_DIR_PATH ] && [ ! -h $HOME_DIR_PATH ]; then
+    echo "$HOME_DIR_PATH exists and it's not a symbolic link"
+    exit 1
+  fi
+
+  mkdir -p $HOME_DIR_PATH
+done
 
 for homeDotFile in "${HomeDotfiles[@]}"; do
   HOME_FILE_PATH=$HOME/$homeDotFile
