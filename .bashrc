@@ -148,6 +148,11 @@ GREEN="\[\033[00m\]"
 RED="\[\033[0;31m\]"
 VIOLET='\[\033[01;35m\]'
 
+# If git LFS is in use, git status check for color becomes slow
+GIT_LFS_FILES=`git lfs ls-files | wc -l`
+GIT_LFS_IN_USE=$(expr $GIT_LFS_FILES != "0")
+SHOW_GIT=$(expr $GIT_LFS_IN_USE == "0")
+
 function prompt_command {
   # local __user_and_host="$GREEN\u@\h"
   # local __user="$GREEN\u"
@@ -158,7 +163,7 @@ function prompt_command {
   local __git_branch='$(__git_ps1)';
   local __wip_warn=""
 
-  if [[ -d .git ]]; then
+  if [[ -d .git && $SHOW_GIT != 0 ]]; then
     if [[ `git log -n 1 --pretty=oneline --abbrev-commit` =~ "WIP" ]]; then # if last commit is a WIP
         __wip_warn="${RED}WIP!!!"
     # colour branch name depending on state
@@ -181,7 +186,7 @@ function prompt_command {
 export PROMPT_COMMAND=prompt_command
 
 # if .git-prompt.sh exists, set options and execute it
-if [ -f ~/.git-prompt.sh ]; then
+if [[ -f ~/.git-prompt.sh && $SHOW_GIT != 0 ]]; then
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWSTASHSTATE=true
   GIT_PS1_SHOWUNTRACKEDFILES=true
