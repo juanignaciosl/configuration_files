@@ -211,3 +211,5 @@ export NVM_DIR="$HOME/.nvm"
 alias restart-broken-audio='pulseaudio -k'
 
 export XAUTHORITY=$HOME/.Xauthority
+
+alias docker-rmi-untagged='docker rmi $(docker images -q --filter "dangling=true") --force'
