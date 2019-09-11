@@ -22,3 +22,7 @@ if [ -f /usr/lib/bash-git-prompt/gitprompt.sh ]; then
    GIT_PROMPT_END=" \n${White}${ResetColor}$ "
    source /usr/lib/bash-git-prompt/gitprompt.sh
 fi
+
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+NPM_CONFIG_PREFIX=~/.npm-global
+PATH=$PATH:~/.npm-global/bin

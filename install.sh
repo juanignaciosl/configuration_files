@@ -8,6 +8,6 @@ makepkg -si
 
 # Base packages
 
-sudo pacman -S vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop terminator x264
+sudo pacman -S vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop terminator x264 docker
 
-yay -S dropbox bash-git-prompt intellij-toolbox spotify telegram-desktop-bin vlc
+yay -S dropbox bash-git-prompt intellij-toolbox spotify telegram-desktop-bin vlc bfg
