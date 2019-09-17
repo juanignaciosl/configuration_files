@@ -23,6 +23,7 @@ if [ -f /usr/lib/bash-git-prompt/gitprompt.sh ]; then
    source /usr/lib/bash-git-prompt/gitprompt.sh
 fi
 
+source /usr/share/nvm/init-nvm.sh
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 NPM_CONFIG_PREFIX=~/.npm-global
 PATH=$PATH:~/.npm-global/bin
