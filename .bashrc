@@ -27,3 +27,4 @@ source /usr/share/nvm/init-nvm.sh
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 NPM_CONFIG_PREFIX=~/.npm-global
 PATH=$PATH:~/.npm-global/bin
+PATH=$PATH:~/bin
