@@ -11,3 +11,5 @@ makepkg -si
 sudo pacman -S vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop terminator x264 docker bluez bluez-utils 
 
 yay -S dropbox bash-git-prompt intellij-toolbox spotify telegram-desktop-bin vlc bfg gnome-shell-extension-appindicator debtap ttf-twemoji libinput-gestures
+
+# libinput-gestures requires running `libinput-gestures-setup start`
