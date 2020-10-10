@@ -8,9 +8,9 @@ makepkg -si
 
 # Base packages
 
-sudo pacman -S vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop terminator x264 bluez bluez-utils inetutils python systemd-swap
+sudo pacman -S linux-lts vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync gimp rawtherapee transmission-gtk calibre
 # Related to development (GIS, Python, Postgres, Docker...)
-sudo pacman -S python-rtree geos docker docker-compose postgresql-libs bash-completion
+sudo pacman -S python python-rtree geos docker docker-compose postgresql-libs bash-completion qgis
 
 yay -S nvm dropbox bash-git-prompt jetbrains-toolbox spotify telegram-desktop-bin vlc bfg gnome-shell-extension-appindicator debtap ttf-twemoji libinput-gestures rescuetime2 gnome-shell-extension-tray-icons chromium zoom
 
