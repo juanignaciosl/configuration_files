@@ -15,3 +15,6 @@ set wildmenu
 set textwidth=0 wrapmargin=0
 
 au Filetype markdown source ~/.vim/scripts/markdown.vim
+
+set mouse=
+set ttymouse=
