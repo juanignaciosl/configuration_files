@@ -8,11 +8,15 @@ makepkg -si
 
 # Base packages
 
-sudo pacman -S linux-lts vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync gimp rawtherapee transmission-gtk calibre
+sudo pacman -S linux-lts vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync gimp rawtherapee transmission-gtk calibre libreoffice-still scribus
 # Related to development (GIS, Python, Postgres, Docker...)
-sudo pacman -S python python-rtree geos docker docker-compose postgresql-libs bash-completion qgis
+sudo pacman -S python python-rtree geos docker docker-compose postgresql-libs bash-completion qgis bat aws-cli-v2
 
-yay -S nvm dropbox bash-git-prompt jetbrains-toolbox spotify telegram-desktop-bin vlc bfg gnome-shell-extension-appindicator debtap ttf-twemoji libinput-gestures rescuetime2 gnome-shell-extension-tray-icons chromium zoom
+# nvidia
+sudo pacman -S nvidia nvidia-dkms nvidia-lts
+yay -S gdm-prime optimus-manager optimus-manager-qt
+
+yay -S nvm dropbox bash-git-prompt jetbrains-toolbox spotify telegram-desktop-bin vlc bfg gnome-shell-extension-appindicator debtap ttf-twemoji libinput-gestures rescuetime2 gnome-shell-extension-tray-icons chromium zoom losslesscut vdhcoapp-bin
 
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now docker
