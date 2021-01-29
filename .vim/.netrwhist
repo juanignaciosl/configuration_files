@@ -1,5 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/usr/share/doc/bash/examples/startup-files'
-let g:netrw_dirhist_2='/home/juanignaciosl/Development/CARTO/pontoon/api/doapi'
-let g:netrw_dirhist_3='/home/juanignaciosl/Development/CARTO/pontoon/.idea/modules'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/juanignaciosl/Development/me/ciudadelas-analysis/games'
