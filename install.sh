@@ -8,7 +8,7 @@ makepkg -si
 
 # Base packages
 
-sudo pacman -Sy linux-lts vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync transmission-gtk calibre libreoffice-still scribus pigz
+sudo pacman -Sy linux-lts vim git gnome networkmanager firefox-developer-edition base-devel gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync transmission-gtk calibre libreoffice-still scribus pigz p7zip signal-desktop ntfs-3g
 # Related to development (GIS, Python, Postgres, Docker...)
 sudo pacman -Sy python python-rtree geos docker docker-compose postgresql-libs bash-completion qgis bat aws-cli-v2 ttf-jetbrains-mono
 # Image
@@ -39,3 +39,9 @@ usermod -a -G wheel $USER
 
 libinput-gestures-setup autostart
 libinput-gestures-setup start
+
+
+
+# Show dng raw files preview: edit /usr/share/thumbnailers/gdk-pixbuf-thumbnailer.thumbnailer adding
+# image/x-xpixmap;image/x-canon-cr2;image/x-adobe-dng;
+# Installing raw-thumbnailer might be needed.
