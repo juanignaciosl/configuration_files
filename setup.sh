@@ -1,6 +1,6 @@
 CONFIGURATION_FILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-HomeDotfiles=('.bash_aliases' '.bashrc' '.gitconfig' '.gitignore' '.inputrc' '.profile' '.vimrc')
+HomeDotfiles=('.bash_aliases' '.bashrc' '.gitconfig' '.gitignore' '.inputrc' '.profile' '.vimrc' '.config/libinput-gestures.conf')
 
 for homeDotFile in "${HomeDotfiles[@]}"; do
   HOME_FILE_PATH=$HOME/$homeDotFile

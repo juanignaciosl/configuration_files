@@ -27,6 +27,7 @@ sudo pacman -Sy --noconfirm simplescreenrecorder openshot
 # nvidia
 sudo pacman -Sy --noconfirm nvidia nvidia-dkms nvidia-lts
 sudo pacman -R --noconfirm gdm # Installing gdm-prime triggers a conflict if gdm is installed
+sudo pacman -S wmctrl xdotool # For libinput-gestures to work
 yay -Sy --answerclean N --answerdiff N --noconfirm gdm-prime optimus-manager optimus-manager-qt libinput-gestures
 
 # There's a dependency to python-botocore-v2-git that doesn't allow automatic confirmation because of a conflict with python-botocore
