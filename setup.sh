@@ -12,3 +12,9 @@ for homeDotFile in "${HomeDotfiles[@]}"; do
   DOT_FILE_PATH=$CONFIGURATION_FILES_DIR/$homeDotFile
   ln -sfT $DOT_FILE_PATH $HOME_FILE_PATH
 done
+
+sudo systemctl start gdm
+
+echo 'Check that you''re using Xorg, not Wayland'
+echo 'Configure optimus-manager https://github.com/Askannz/optimus-manager#configuration'
+echo 'Configure swap https://wiki.archlinux.org/index.php/Swap'
