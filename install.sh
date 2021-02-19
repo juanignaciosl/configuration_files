@@ -16,7 +16,7 @@ makepkg -si --noconfirm
 # gdm can't be automatically installed if gdm-prime is present
 yay -R --noconfirm gdm-prime || true
 sudo pacman -Sy --noconfirm archlinux-keyring
-sudo pacman -Sy --noconfirm linux-lts man-db man-pages vim git gnome networkmanager firefox-developer-edition gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync transmission-gtk calibre libreoffice-still scribus pigz p7zip signal-desktop ntfs-3g
+sudo pacman -Sy --noconfirm linux-lts man-db man-pages vim git gnome networkmanager firefox-developer-edition gnome-tweaks extra/ttf-dejavu ruby htop iotop terminator x264 bluez bluez-utils inetutils systemd-swap rsync transmission-gtk calibre libreoffice-still scribus pigz p7zip signal-desktop ntfs-3g nethogs
 # Related to development (GIS, Python, Postgres, Docker...)
 sudo pacman -Sy --noconfirm python python-rtree geos docker docker-compose postgresql-libs bash-completion qgis bat ttf-jetbrains-mono
 # Image
